@@ -1,10 +1,9 @@
 import { createLocalVue, TransitionStub } from '@vue/test-utils'
-import fullNameFilter from '../../src/plugins/filters/full-name'
-import dateFilter from '../../src/plugins/filters/date'
-import veeValidatePlugin from '../../../src/plugins/vee-validate'
+import fullNameFilter from '../filters/full-name'
+import dateFilter from '../filters/date'
 import quasar from 'quasar'
 
-export function createAppVue (options = {}) {
+export function createTestApp (options = {}) {
   const app = options.app || null
   const router = options.router || null
   const store = options.store || null
@@ -15,7 +14,6 @@ export function createAppVue (options = {}) {
   const plugins = []
   plugins.push(fullNameFilter)
   plugins.push(dateFilter)
-  plugins.push(veeValidatePlugin)
 
   localVue.component('transition', TransitionStub)
 
