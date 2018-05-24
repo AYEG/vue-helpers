@@ -1,7 +1,6 @@
 module.exports = {
   'moduleFileExtensions': [
     'js',
-    'vue',
   ],
   'transformIgnorePatterns': [
     'node_modules/core-js',
@@ -16,11 +15,5 @@ module.exports = {
   },
   'transform': {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',
-    '.*\\.(vue)$': '<rootDir>/node_modules/vue-jest',
   },
-  'setupFiles': [
-    'jest-localstorage-mock',
-    '<rootDir>test/setup.js',
-  ],
-  clearMocks: true,
 }
