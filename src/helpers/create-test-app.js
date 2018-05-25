@@ -11,7 +11,7 @@ export function createTestApp (options = {}) {
   const localVue = createLocalVue()
   localVue.use(quasar)
 
-  const plugins = []
+  const plugins = options.plugins || []
   plugins.push(fullNameFilter)
   plugins.push(dateFilter)
 

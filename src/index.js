@@ -1,2 +1,2 @@
-export * from '/src/filters'
-export * from '/src/helpers'
+export * from './filters'
+export * from './helpers'

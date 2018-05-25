@@ -74,9 +74,9 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@vue/test-utils@^1.0.0-beta.12":
-  version "1.0.0-beta.16"
-  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.16.tgz#dcf7a30304391422e382b5f97db6eb9508112906"
+"@vue/test-utils@1.0.0-beta.12":
+  version "1.0.0-beta.12"
+  resolved "https://registry.yarnpkg.com/@vue/test-utils/-/test-utils-1.0.0-beta.12.tgz#c020d5e7566d176a654e44c88d303743ad19b3cf"
   dependencies:
     lodash "^4.17.4"
 
@@ -7694,10 +7694,6 @@ validate-npm-package-license@^3.0.1:
 vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
-
-vee-validate@^2.0.5:
-  version "2.0.9"
-  resolved "https://registry.yarnpkg.com/vee-validate/-/vee-validate-2.0.9.tgz#948a96572d9e2369d5cb217a84269ecf6c1f9a11"
 
 vendors@^1.0.0:
   version "1.0.2"

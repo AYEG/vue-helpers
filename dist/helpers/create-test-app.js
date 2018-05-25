@@ -31,7 +31,7 @@ function createTestApp () {
   var localVue = (0, _testUtils.createLocalVue)()
   localVue.use(_quasar2.default)
 
-  var plugins = []
+  var plugins = options.plugins || []
   plugins.push(_fullName2.default)
   plugins.push(_date2.default)
 

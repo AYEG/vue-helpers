@@ -1,11 +1,11 @@
 {
   "name": "@laura-wert/vue-helpers",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "productName": "",
   "license": "MIT",
   "author": " ",
-  "main": "/dist/",
+  "main": "dist/",
   "publishConfig": {
     "access": "public"
   },
@@ -16,7 +16,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.12",
+    "@vue/test-utils": "1.0.0-beta.12",
     "babel-cli": "^6.26.0",
     "babel-eslint": "8.2.1",
     "babel-jest": "^22.4.1",
