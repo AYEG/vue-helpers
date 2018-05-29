@@ -11,12 +11,13 @@
   },
   "scripts": {
     "build": "yarn lint && babel src --out-dir dist",
-    "release": "yarn build && yarn publish",
+    "release": "yarn git-clean-status && yarn build && yarn publish",
     "lint": "eslint --ext .js,.vue src test",
     "test": "jest"
   },
   "devDependencies": {
     "@vue/test-utils": "1.0.0-beta.12",
+    "@laura-wert/git-clean-status": "^1.0.0",
     "babel-cli": "^6.26.0",
     "babel-eslint": "8.2.1",
     "babel-jest": "^22.4.1",
