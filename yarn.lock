@@ -68,10 +68,6 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@laura-wert/git-clean-status@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@laura-wert/git-clean-status/-/git-clean-status-1.0.0.tgz#faadfd2fb13da2b46ff6e90c3b631e9bea03b088"
-
 "@samverschueren/stream-to-observable@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz#ecdf48d532c58ea477acfcab80348424f8d0662f"

@@ -1,1 +1,1 @@
-vue-helpers
+uw-vue-helpers
