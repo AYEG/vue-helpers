@@ -1,6 +1,6 @@
 import { createLocalVue, TransitionStub } from '@vue/test-utils'
-import fullNameFilter from '../filters/full-name'
-import dateFilter from '../filters/date'
+import fullNameFilter from 'src/filters/full-name'
+import dateFilter from 'src/filters/date'
 import quasar from 'quasar'
 
 export function createTestApp (options = {}) {
