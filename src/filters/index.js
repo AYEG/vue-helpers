@@ -1,4 +1,4 @@
-import date from './date'
-import fullName from './full-name'
+import dateFilter from './date'
+import fullNameFilter from './full-name'
 
-export { date, fullName }
+export { dateFilter, fullNameFilter }
