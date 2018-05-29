@@ -1,6 +1,6 @@
 {
   "name": "@laura-wert/vue-helpers",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "",
   "productName": "",
   "license": "MIT",
@@ -16,8 +16,8 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@vue/test-utils": "1.0.0-beta.12",
     "@laura-wert/git-clean-status": "^1.0.0",
+    "@vue/test-utils": "1.0.0-beta.12",
     "babel-cli": "^6.26.0",
     "babel-eslint": "8.2.1",
     "babel-jest": "^22.4.1",
