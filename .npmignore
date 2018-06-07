@@ -1,6 +1,7 @@
 /.idea/
 /node_modules/
 /src/
+!/src/components/
 /test/
 .babelrc
 .eslintrc.js

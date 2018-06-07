@@ -1,6 +1,6 @@
 {
   "name": "@laura-wert/vue-helpers",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "productName": "",
   "license": "MIT",
@@ -29,10 +29,13 @@
     "eslint-plugin-node": "5.2.0",
     "eslint-plugin-promise": "3.4.0",
     "eslint-plugin-standard": "3.0.1",
+    "eslint-plugin-vue": "4.5.0",
+    "eslint-plugin-html": "^4.0.2",
     "husky": "^1.0.0-rc.2",
     "jest": "^22.4.2",
     "lint-staged": "^7.0.4",
-    "quasar-cli": "^0.15.9"
+    "quasar-cli": "^0.15.9",
+    "vue-jest": "^2.1.1"
   },
   "browserslist": [
     "> 1%",

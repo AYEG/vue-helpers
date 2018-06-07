@@ -9,11 +9,13 @@ module.exports = {
     jest: true,
   },
   extends: [
+    'plugin:vue/recommended',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard',
   ],
   plugins: [
     'import',
+    'vue',
   ],
   // add your custom rules here
   rules: {
@@ -41,5 +43,18 @@ module.exports = {
     'function-paren-newline': ['error', 'multiline'],
     // always place a space between a function name and params
     'space-before-function-paren': ['error', 'always'],
+    'vue/max-attributes-per-line': [2, {
+      'singleline': 3,
+      'multiline': {
+        'max': 1,
+        'allowFirstLine': false,
+      },
+    }],
+    'vue/html-closing-bracket-newline': ['error', {
+      'singleline': 'never',
+      'multiline': 'always',
+    }],
+    'vue/html-closing-bracket-spacing': ['error'],
+    'vue/prop-name-casing': ['error'],
   },
 }
