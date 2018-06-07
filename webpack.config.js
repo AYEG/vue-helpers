@@ -32,7 +32,7 @@ var config = {
     },
   },
 }
-console.log(__dirname)
+
 module.exports = [
   merge(config, {
     entry: path.resolve(__dirname, './src/index.js'),
