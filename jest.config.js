@@ -13,6 +13,7 @@ module.exports = {
   'moduleNameMapper': {
     'quasar': '<rootDir>/node_modules/quasar-framework/dist/quasar.mat.esm.js',
     '^src/(.*)$': '<rootDir>/src/$1',
+    '^test/(.*)$': '<rootDir>/test/$1',
   },
   'transform': {
     '^.+\\.js$': '<rootDir>/node_modules/babel-jest',

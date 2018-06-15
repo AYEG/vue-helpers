@@ -1,10 +1,14 @@
-const merge = require('webpack-merge')
+const { VueLoaderPlugin } = require('vue-loader') // installed via npm
 const path = require('path')
 
-var config = {
-  mode: 'development',
+module.exports = {
+  mode: 'production',
+  entry: path.resolve(__dirname, './src/index.js'),
   output: {
     path: path.resolve(__dirname, './dist/'),
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'uw-vue-helpers',
   },
   module: {
     rules: [
@@ -31,15 +35,7 @@ var config = {
       src: path.resolve(__dirname, './src'),
     },
   },
+  plugins: [
+    new VueLoaderPlugin(),
+  ],
 }
-
-module.exports = [
-  merge(config, {
-    entry: path.resolve(__dirname, './src/index.js'),
-    output: {
-      filename: 'index.js',
-      libraryTarget: 'umd',
-      library: 'uw-vue-helpers',
-    },
-  }),
-]

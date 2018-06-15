@@ -1,3 +1,3 @@
-import Version from './Version'
+import Version from 'src/components/Version'
 
 export { Version }
