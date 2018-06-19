@@ -31,7 +31,7 @@
 import { QInput, QSelect, QChipsInput } from 'quasar'
 
 export default {
-  name: 'TestMultiOptionForm',
+  name: 'TestForm',
   components: {
     QInput,
     QSelect,
