@@ -26,7 +26,7 @@ module.exports = {
   },
   externals: {
     quasar: 'quasar',
-    '@vue/test-utils': '@vue/test-utils',
+    vue: 'vue',
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
