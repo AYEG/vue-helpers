@@ -1,6 +1,6 @@
 {
   "name": "@laura-wert/vue-helpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "productName": "",
   "license": "MIT",
@@ -41,18 +41,18 @@
     "husky": "^1.0.0-rc.2",
     "jest": "^22.4.2",
     "lint-staged": "^7.0.4",
+    "quasar-framework": ">0.15.8",
     "rimraf": "^2.6.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "vue": "^2.5.16",
     "vue-jest": "^2.1.1",
     "vue-loader": "^15.2.4",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.5.16",
     "vue-test-utils": "^1.0.0-beta.11",
     "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.3",
-    "quasar-framework": ">0.15.8",
-    "vue": "^2.5.16"
+    "webpack-cli": "^3.0.3"
   },
   "peerDependencies": {
     "quasar-framework": ">0.15.8",
