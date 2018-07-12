@@ -1,6 +1,6 @@
 {
   "name": "@laura-wert/vue-helpers",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "description": "",
   "productName": "",
   "license": "MIT",
@@ -53,8 +53,8 @@
     "webpack-cli": "^3.0.3"
   },
   "peerDependencies": {
-    "vue": "^2.5.16",
-    "quasar-framework": ">0.15.8"
+    "quasar-framework": ">0.15.8",
+    "vue": "^2.5.16"
   },
   "files": [
     "package.json",
