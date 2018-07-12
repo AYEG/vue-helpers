@@ -1,8 +1,5 @@
 import { shallow } from '@vue/test-utils'
 import Version from 'src/components/Version'
-import { createTestApp } from 'src/helpers/create-test-app'
-
-let localVue = createTestApp()
 
 let propsData = {}
 
@@ -14,7 +11,6 @@ describe('Version.vue', () => {
   it('Shows version of the project', () => {
     const wrapper = shallow(Version, {
       propsData,
-      localVue,
     })
     expect(wrapper.find('span').text()).toBe('Versie: dev')
   })
@@ -24,7 +20,6 @@ describe('Version.vue', () => {
 
     const wrapper = shallow(Version, {
       propsData,
-      localVue,
     })
     expect(wrapper.find('span').text()).toBe('Versie: test_string')
   })
