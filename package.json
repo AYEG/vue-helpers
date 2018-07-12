@@ -55,8 +55,7 @@
     "webpack-cli": "^3.0.3"
   },
   "peerDependencies": {
-    "quasar-framework": ">0.15.8",
-    "vue": "^2.5.16"
+    "quasar-cli": "^0.15.0"
   },
   "files": [
     "package.json",
