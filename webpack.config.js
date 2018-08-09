@@ -1,4 +1,4 @@
-const { VueLoaderPlugin } = require('vue-loader') // installed via npm
+const {VueLoaderPlugin} = require('vue-loader') // installed via npm
 const path = require('path')
 
 module.exports = {
@@ -21,6 +21,14 @@ module.exports = {
         test: /\.vue$/,
         include: [path.resolve(__dirname, './src')],
         loader: 'vue-loader',
+      },
+      {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader',
+        ],
       },
     ],
   },
