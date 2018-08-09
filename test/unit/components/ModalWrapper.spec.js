@@ -119,13 +119,13 @@ describe('ModalWrapper.vue', () => {
     // default closed correct
     expect(qModal.props().value).toBe(false)
 
-    wrapper.vm.refOpenModal()
+    wrapper.vm.open()
 
     wrapper.update()
 
     expect(qModal.props().value).toBe(true)
 
-    wrapper.vm.refCloseModal()
+    wrapper.vm.close()
 
     wrapper.update()
 

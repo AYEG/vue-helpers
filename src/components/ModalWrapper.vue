@@ -1,9 +1,9 @@
 <template>
   <q-modal
-    v-model="open"
+    v-model="opened"
     v-bind="$attrs"
     v-on="$listeners"
-    @hide="open = false"
+    @hide="opened = false"
   >
     <div class="modal-header">{{ title }}</div>
 
@@ -17,7 +17,7 @@
           color="primary"
           class="abort"
           flat
-          @click="open = false"
+          @click="opened = false"
         >
           Annuleren
         </q-btn>
@@ -70,7 +70,7 @@ export default {
     }
   },
   computed: {
-    open: {
+    opened: {
       get () { return this.value || this.refOpen },
       set (value) {
         this.refOpen = false
@@ -79,10 +79,10 @@ export default {
     },
   },
   methods: {
-    refOpenModal () {
+    open () {
       this.refOpen = true
     },
-    refCloseModal () {
+    close () {
       this.refOpen = false
     },
   },
