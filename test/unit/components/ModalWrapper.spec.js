@@ -1,9 +1,9 @@
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
+import createTestApp from 'test/helpers/create-test-app'
 import ModalWrapper from 'src/components/ModalWrapper'
-import quasar from 'quasar'
+import TestModalWrapper from 'test/unit/wrappers/TestModalWrapper'
 
-const localVue = createLocalVue()
-localVue.use(quasar)
+const localVue = createTestApp()
 
 describe('ModalWrapper.vue', () => {
   it('Displays title in modal header', () => {
@@ -85,20 +85,29 @@ describe('ModalWrapper.vue', () => {
     })
 
     wrapper.setMethods({$emit: jest.fn()})
-
     const qModal = wrapper.find({name: 'QModal'})
+    const transition = wrapper.find({name: 'ExtendedTransitionStub'})
 
     // default closed correct
     expect(qModal.props().value).toBe(false)
 
     // prop: close to open
     wrapper.setProps({value: true})
+    await localVue.nextTick()
+    transition.vm.triggerEnterHooks()
+
+    expect(qModal.emitted('show')).toEqual([[undefined]])
     expect(qModal.props().value).toBe(true)
 
     // prop: open to close
     wrapper.setProps({value: false})
+    await localVue.nextTick()
+    transition.vm.triggerLeaveHooks()
+
+    expect(qModal.emitted('hide')).toEqual([[undefined]])
     expect(qModal.props().value).toBe(false)
 
+    // test submit
     wrapper.find('.confirm').trigger('click')
     expect(wrapper.vm.$emit).toBeCalledWith('submit')
 
@@ -121,14 +130,38 @@ describe('ModalWrapper.vue', () => {
 
     wrapper.vm.open()
 
-    wrapper.update()
+    await wrapper.vm.$nextTick()
 
     expect(qModal.props().value).toBe(true)
 
     wrapper.vm.close()
 
-    wrapper.update()
+    await wrapper.vm.$nextTick()
 
     expect(qModal.props().value).toBe(false)
+  })
+
+  it('Passes all modal events to next parent', async () => {
+    const wrapper = mount(TestModalWrapper, {
+      localVue,
+    })
+
+    wrapper.setMethods({atShow: jest.fn(), atHide: jest.fn(), atEscape: jest.fn()})
+
+    const qModal = wrapper.find({name: 'QModal'})
+
+    expect(wrapper.vm.atShow).not.toHaveBeenCalled()
+    expect(wrapper.vm.atHide).not.toHaveBeenCalled()
+    expect(wrapper.vm.atEscape).not.toHaveBeenCalled()
+
+    qModal.vm.$emit('escape-key')
+    qModal.vm.$emit('show')
+    qModal.vm.$emit('hide')
+
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.vm.atShow).toHaveBeenCalled()
+    expect(wrapper.vm.atHide).toHaveBeenCalled()
+    expect(wrapper.vm.atEscape).toHaveBeenCalled()
   })
 })
