@@ -6,16 +6,25 @@ import TestModalWrapper from 'test/unit/wrappers/TestModalWrapper'
 const localVue = createTestApp()
 
 describe('ModalWrapper.vue', () => {
-  it('Displays title in modal header', () => {
+  it('Displays title in modal header and hides element when empty', async () => {
     const wrapper = mount(ModalWrapper, {
       localVue,
       propsData: {
-        value: false,
+        value: true,
         title: 'Test modal',
       },
     })
+    const transition = wrapper.find({name: 'ExtendedTransitionStub'})
+
+    wrapper.setProps({value: true})
+    await localVue.nextTick()
+    transition.vm.triggerEnterHooks()
 
     expect(wrapper.find('.modal-header').text()).toBe('Test modal')
+    expect(wrapper.find('.modal-header').isVisible()).toBe(true)
+
+    wrapper.setProps({title: ''})
+    expect(wrapper.find('.modal-header').isVisible()).toBe(false)
   })
 
   it('Shows and hides the modal using the value prop', async () => {
@@ -75,7 +84,7 @@ describe('ModalWrapper.vue', () => {
     expect(loading.find('.q-inner-loading').isVisible()).toBe(true)
   })
 
-  it('Validates it opens and closes the modal correctly using v-modal', async () => {
+  it('Validates it opens and closes the modal correctly using v-model', async () => {
     const wrapper = mount(ModalWrapper, {
       localVue,
       propsData: {
@@ -85,6 +94,7 @@ describe('ModalWrapper.vue', () => {
     })
 
     wrapper.setMethods({$emit: jest.fn()})
+
     const qModal = wrapper.find({name: 'QModal'})
     const transition = wrapper.find({name: 'ExtendedTransitionStub'})
 
@@ -147,7 +157,6 @@ describe('ModalWrapper.vue', () => {
     })
 
     wrapper.setMethods({atShow: jest.fn(), atHide: jest.fn(), atEscape: jest.fn()})
-
     const qModal = wrapper.find({name: 'QModal'})
 
     expect(wrapper.vm.atShow).not.toHaveBeenCalled()

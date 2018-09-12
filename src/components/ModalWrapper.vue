@@ -5,7 +5,7 @@
     v-on="$listeners"
     @hide="opened = false"
   >
-    <div class="modal-header">{{ title }}</div>
+    <div v-show="title !== ''" class="modal-header">{{ title }}</div>
 
     <div class="modal-form-body">
       <slot name="content" />
@@ -57,7 +57,7 @@ export default {
     },
     title: {
       type: String,
-      required: true,
+      default: '',
     },
     showLoading: {
       type: Boolean,
