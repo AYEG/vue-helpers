@@ -6,6 +6,9 @@
   "license": "MIT",
   "author": " ",
   "main": "dist/",
+  "bin": {
+    "laura-wert-cli": "bin/cli.js"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -19,6 +22,7 @@
   "devDependencies": {
     "@laura-wert/git-clean-status": "^1.0.0",
     "@laura-wert/vue-test-helpers": "1.0.3",
+    "@vue/cli-plugin-typescript": ">=3.3.0",
     "@vue/test-utils": "1.0.0-beta.12",
     "babel-cli": "^6.26.0",
     "babel-eslint": "8.2.1",
@@ -46,6 +50,7 @@
     "rimraf": "^2.6.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "typescript": "^3.2.2",
     "vue": "^2.5.16",
     "vue-jest": "^2.1.1",
     "vue-loader": "^15.2.4",
@@ -55,11 +60,13 @@
     "webpack-cli": "^3.0.3"
   },
   "peerDependencies": {
-    "quasar-cli": "^0.15.0"
+    "@vue/cli-plugin-typescript": ">=3.3.0",
+    "quasar-cli": ">=0.15.0"
   },
   "files": [
     "package.json",
-    "dist/"
+    "dist/",
+    "bin/"
   ],
   "browserslist": [
     "> 1%",
