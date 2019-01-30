@@ -11,7 +11,7 @@ props:
     * value (boolean optional): used to open and close the modal
     * title (string optional): Title to be displayed in the modal
     * showLoading (boolean optional): Shows QInnerLoading with QSpinnerGears if true
-    * All props of QModal available in the current version
+    * All props of QModal available in the current version of quasar
 ```
 
 Besides displaying props the modal also has three slots available for you to customize your modal. These slots being:
