@@ -16,6 +16,7 @@
         <q-btn
           color="primary"
           class="abort"
+          data-name="abort-modal-wrapper"
           flat
           @click="opened = false"
         >
@@ -26,6 +27,7 @@
         <q-btn
           color="primary"
           class="confirm"
+          data-name="submit-modal-wrapper"
           flat
           @click="$emit('submit')"
         >
