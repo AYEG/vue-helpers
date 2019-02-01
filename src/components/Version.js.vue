@@ -6,10 +6,11 @@ export default {
       required: true,
     },
   },
-  render (createElement) {
+  render(createElement) {
     if (this.version) {
-      return createElement('span', {class: 'version'}, 'Versie: ' + this.version)
+      return createElement('span', { class: 'version' }, 'Versie: ' + this.version)
     }
+
     return null
   },
 }

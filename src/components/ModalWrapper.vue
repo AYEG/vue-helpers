@@ -41,53 +41,42 @@
   </q-modal>
 </template>
 
-<script>
-import { QBtn, QModal, QInnerLoading, QSpinnerGears } from 'quasar'
+<script lang=ts>
+import { QBtn, QInnerLoading, QModal, QSpinnerGears } from 'quasar'
+import Vue from 'vue'
+import { Component, Prop } from 'vue-property-decorator'
 
-export default {
-  name: 'ModalWrapper',
+@Component({
   components: {
     QBtn,
     QModal,
     QInnerLoading,
     QSpinnerGears,
   },
-  props: {
-    value: {
-      type: Boolean,
-      default: false,
-    },
-    title: {
-      type: String,
-      default: '',
-    },
-    showLoading: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data () {
-    return {
-      refOpen: false,
-    }
-  },
-  computed: {
-    opened: {
-      get () { return this.value || this.refOpen },
-      set (value) {
-        this.refOpen = false
-        this.$emit('input', value)
-      },
-    },
-  },
-  methods: {
-    open () {
-      this.refOpen = true
-    },
-    close () {
-      this.refOpen = false
-    },
-  },
+})
+export default class ModalWrapper extends Vue {
+  @Prop({ type: Boolean, default: false }) public value!: boolean
+  @Prop({ type: String, default: '' }) public title!: string
+  @Prop({ type: Boolean, default: false }) public showLoading!: boolean
+
+  public refOpen: boolean = false
+
+  get opened(): boolean {
+    return this.value || this.refOpen
+  }
+
+  set opened(value: boolean) {
+    this.refOpen = false
+    this.$emit('input', value)
+  }
+
+  public open(): void {
+    this.refOpen = true
+  }
+
+  public close(): void {
+    this.refOpen = false
+  }
 }
 </script>
 

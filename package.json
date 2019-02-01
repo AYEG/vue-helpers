@@ -5,7 +5,7 @@
   "productName": "",
   "license": "MIT",
   "author": " ",
-  "main": "dist/",
+  "main": "dist/index.umd.min.js",
   "bin": {
     "laura-wert-cli": "bin/cli.js"
   },
@@ -13,59 +13,64 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn lint && rimraf ./dist && webpack --config ./webpack.config.js",
+    "build": "yarn lint && yarn clean && yarn build:ts && yarn build:main",
+    "build:ts": "tsc -p . --declaration --emitDeclarationOnly --allowJs false --noImplicitAny false && rm -rf ./lib/test",
+    "build:main": "vue-cli-service build --target lib --name org/index src/index.js && mv ./dist/org/index.umd.min.js ./dist/ && rm -rf ./dist/org && rm -rf ./dist/demo.html",
+    "clean": "rimraf ./dist && rimraf ./lib",
     "release": "yarn git-clean-status &&  yarn build && yarn publish",
-    "lint": "eslint --ext .js,.vue src test",
-    "test": "jest",
-    "test-ci": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "lint": "vue-cli-service lint --fix && ./bin/cli.js tslint",
+    "test:unit": "vue-cli-service test:unit --include tests/unit/setup.js tests/unit/",
+    "test:unit-s": "vue-cli-service test:unit --include tests/unit/setup.js",
+    "test-ci": "yarn cover && cat ./coverage/lcov.info | yarn codacy-coverage",
+    "cover": "cross-env NODE_ENV=coverage nyc --reporter=lcovonly vue-cli-service test:unit tests/unit/"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.2",
     "@laura-wert/git-clean-status": "^1.0.0",
-    "@laura-wert/vue-test-helpers": "1.0.3",
-    "@vue/cli-plugin-typescript": ">=3.3.0",
-    "@vue/test-utils": "1.0.0-beta.12",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "8.2.1",
-    "babel-jest": "^22.4.1",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "babel-plugin-transform-runtime": "^6.23.0",
-    "babel-preset-es2015": "^6.24.1",
+    "@laura-wert/vue-test-helpers": "^1.0.13",
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.5",
+    "@types/node": "^10.12.20",
+    "@types/sinon": "^7.0.5",
+    "@types/sinon-chai": "^3.2.2",
+    "@vue/cli-plugin-babel": "3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-plugin-typescript": "^3.4.0",
+    "@vue/cli-plugin-unit-mocha": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "@vue/eslint-config-standard": "^3.0.5",
+    "@vue/eslint-config-typescript": "^3.2.1",
+    "@vue/test-utils": "1.0.0-beta.28",
+    "babel-plugin-istanbul": "^5.1.0",
+    "chai": "^4.2.0",
     "codacy-coverage": "^3.0.0",
-    "css-loader": "^0.28.11",
-    "eslint": "4.15.0",
-    "eslint-config-standard": "10.2.1",
-    "eslint-friendly-formatter": "3.0.0",
-    "eslint-loader": "1.7.1",
-    "eslint-plugin-html": "^4.0.2",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "5.2.0",
-    "eslint-plugin-promise": "3.4.0",
-    "eslint-plugin-standard": "3.0.1",
-    "eslint-plugin-vue": "4.5.0",
+    "cross-env": "^5.2.0",
+    "eslint-plugin-chai-friendly": "^0.4.1",
+    "fork-ts-checker-webpack-plugin": "^0.5.2",
     "husky": "^1.0.0-rc.2",
-    "jest": "^22.4.2",
     "lint-staged": "^7.0.4",
-    "quasar-framework": "0.16.0",
+    "nyc": "^13.1.0",
+    "quasar-framework": ">=0.16.0",
     "rimraf": "^2.6.2",
+    "sinon": "^7.2.3",
+    "sinon-chai": "^3.3.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "typescript": "^3.2.2",
-    "vue": "^2.5.16",
-    "vue-jest": "^2.1.1",
-    "vue-loader": "^15.2.4",
-    "vue-style-loader": "^4.1.0",
-    "vue-template-compiler": "^2.5.16",
-    "webpack": "^4.11.1",
-    "webpack-cli": "^3.0.3"
+    "tslint-no-unused-expression-chai": "^0.1.4",
+    "typescript": "^3.1.6",
+    "vue": "^2.5.22",
+    "vue-class-component": "^6.3.2",
+    "vue-property-decorator": "^7.3.0",
+    "vue-template-compiler": "^2.5.22"
   },
   "peerDependencies": {
-    "@vue/cli-plugin-typescript": ">=3.3.0",
-    "quasar-cli": ">=0.15.0"
+    "quasar-cli": ">=0.15.0",
+    "vue": ">=2.5.16"
   },
   "files": [
     "package.json",
     "dist/",
+    "lib/",
     "bin/"
   ],
   "browserslist": [
@@ -83,5 +88,26 @@
       "eslint --fix",
       "git add"
     ]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 0,
+    "statements": 0,
+    "functions": 0,
+    "branches": 0,
+    "include": [
+      "src/**/*.{js,ts,vue}"
+    ],
+    "reporter": [
+      "lcov"
+    ],
+    "extension": [
+      ".js",
+      ".ts",
+      ".vue"
+    ],
+    "cache": true,
+    "all": true
   }
 }

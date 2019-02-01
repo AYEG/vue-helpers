@@ -1,5 +1,4 @@
 import { createTestApp as createBaseTestApp } from '@laura-wert/vue-test-helpers'
+import Vue from 'vue'
 
-export default function createTestApp () {
-  return createBaseTestApp()
-}
+export default (): typeof Vue => createBaseTestApp()
