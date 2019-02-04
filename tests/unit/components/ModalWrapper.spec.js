@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { expect } from 'chai'
 import sinon from 'sinon'
-import ModalWrapper from 'src/components/ModalWrapper'
+import ModalWrapper from 'src/components/ModalWrapperElements/ModalWrapper'
 import createTestApp from 'tests/helpers/create-test-app'
 import TestModalWrapper from 'tests/unit/wrappers/TestModalWrapper'
 
@@ -118,12 +118,19 @@ describe('ModalWrapper.vue', () => {
     expect(qModal.emitted('hide')).to.eql([[undefined]])
     expect(qModal.props().value).to.equal(false)
 
-    // test submit
-    wrapper.find('.confirm').trigger('click')
-    expect(wrapper.vm.$emit).to.be.calledWith('submit')
+    const submitBtn = wrapper.find('[data-name="submit-modal-wrapper"]')
+    const abortBtn = wrapper.find('[data-name="abort-modal-wrapper"]')
 
-    wrapper.find('.abort').trigger('click')
-    expect(wrapper.vm.$emit).to.be.calledWith('input', false)
+    const buttonsElement = wrapper.find({ name: 'ModalWrapperButtons' })
+
+    // test buttons
+    submitBtn.trigger('click')
+    abortBtn.trigger('click')
+
+    await qModal.vm.$nextTick()
+
+    expect(buttonsElement.emitted('submit')[0]).to.eql([])
+    expect(buttonsElement.emitted('close')[0]).to.eql([])
   })
 
   it('Validates it opens and closes the modal correctly using refs', async () => {

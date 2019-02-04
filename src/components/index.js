@@ -1,4 +1,7 @@
-import ModalWrapper from 'src/components/ModalWrapper'
 import Version from 'src/components/Version.js'
 
-export { Version, ModalWrapper }
+export * from 'src/components/ModalWrapperElements'
+
+export {
+  Version,
+}
