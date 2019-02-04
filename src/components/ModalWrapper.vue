@@ -11,7 +11,7 @@
       <slot name="content" />
     </div>
 
-    <div class="modal-form-buttons row">
+    <div v-if="buttonsEnabled" class="modal-form-buttons row">
       <slot name="abort">
         <q-btn
           color="primary"
@@ -58,6 +58,7 @@ export default class ModalWrapper extends Vue {
   @Prop({ type: Boolean, default: false }) public value!: boolean
   @Prop({ type: String, default: '' }) public title!: string
   @Prop({ type: Boolean, default: false }) public showLoading!: boolean
+  @Prop({ type: Boolean, default: true }) public buttonsEnabled!: boolean
 
   public refOpen: boolean = false
 
