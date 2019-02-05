@@ -125,11 +125,11 @@ describe('ModalWrapper.vue', () => {
 
     // test buttons
     submitBtn.trigger('click')
-    abortBtn.trigger('click')
-
     await qModal.vm.$nextTick()
-
     expect(buttonsElement.emitted('submit')[0]).to.eql([])
+    
+    abortBtn.trigger('click')
+    await qModal.vm.$nextTick()
     expect(buttonsElement.emitted('close')[0]).to.eql([])
   })
 
