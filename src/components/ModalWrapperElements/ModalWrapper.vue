@@ -20,7 +20,7 @@
 </template>
 
 <script lang=ts>
-import { QBtn, QInnerLoading, QModal, QSpinnerGears } from 'quasar'
+import { QInnerLoading, QModal, QSpinnerGears } from 'quasar'
 import ModalWrapperButtons from 'src/components/ModalWrapperElements/ModalWrapperButtons.vue'
 import ModalWrapperContent from 'src/components/ModalWrapperElements/ModalWrapperContent.vue'
 import ModalWrapperTitle from 'src/components/ModalWrapperElements/ModalWrapperTitle.vue'
@@ -32,7 +32,6 @@ import { Component, Prop } from 'vue-property-decorator'
     ModalWrapperTitle,
     ModalWrapperButtons,
     ModalWrapperContent,
-    QBtn,
     QModal,
     QInnerLoading,
     QSpinnerGears,

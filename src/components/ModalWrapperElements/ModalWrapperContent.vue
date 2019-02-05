@@ -5,14 +5,11 @@
 </template>
 
 <script lang=ts>
-import { QBtn } from 'quasar'
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
 @Component({
-  components: {
-    QBtn,
-  },
+  components: {},
 })
 export default class ModalWrapperContent extends Vue {}
 </script>

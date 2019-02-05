@@ -3,14 +3,11 @@
 </template>
 
 <script lang=ts>
-import { QBtn } from 'quasar'
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
 @Component({
-  components: {
-    QBtn,
-  },
+  components: {},
 })
 export default class ModalWrapperTitle extends Vue {
   @Prop({ type: String, default: '' }) public title!: string
