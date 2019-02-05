@@ -13,7 +13,7 @@
 </template>
 
 <script lang=ts>
-import ModalWrapper from 'src/components/ModalWrapper.vue'
+import ModalWrapper from 'src/components/ModalWrapperElements/ModalWrapper.vue'
 import Vue from 'vue'
 import Component from 'vue-class-component'
 

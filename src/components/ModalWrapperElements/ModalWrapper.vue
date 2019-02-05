@@ -5,36 +5,14 @@
     v-on="$listeners"
     @hide="opened = false"
   >
-    <div v-show="title !== ''" class="modal-header">{{ title }}</div>
+    <modal-wrapper-title :title="title" />
 
-    <div class="modal-form-body">
+    <modal-wrapper-content>
       <slot name="content" />
-    </div>
+    </modal-wrapper-content>
 
-    <div v-if="buttonsEnabled" class="modal-form-buttons row">
-      <slot name="abort">
-        <q-btn
-          color="primary"
-          class="abort"
-          data-name="abort-modal-wrapper"
-          flat
-          @click="opened = false"
-        >
-          Annuleren
-        </q-btn>
-      </slot>
-      <slot name="submit">
-        <q-btn
-          color="primary"
-          class="confirm"
-          data-name="submit-modal-wrapper"
-          flat
-          @click="$emit('submit')"
-        >
-          Bevestigen
-        </q-btn>
-      </slot>
-    </div>
+    <ModalWrapperButtons v-on="$listeners" @close="opened = false" />
+
     <q-inner-loading :visible="showLoading">
       <q-spinner-gears size="50px" color="primary" />
     </q-inner-loading>
@@ -43,11 +21,17 @@
 
 <script lang=ts>
 import { QBtn, QInnerLoading, QModal, QSpinnerGears } from 'quasar'
+import ModalWrapperButtons from 'src/components/ModalWrapperElements/ModalWrapperButtons.vue'
+import ModalWrapperContent from 'src/components/ModalWrapperElements/ModalWrapperContent.vue'
+import ModalWrapperTitle from 'src/components/ModalWrapperElements/ModalWrapperTitle.vue'
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
 @Component({
   components: {
+    ModalWrapperTitle,
+    ModalWrapperButtons,
+    ModalWrapperContent,
     QBtn,
     QModal,
     QInnerLoading,
@@ -80,14 +64,3 @@ export default class ModalWrapper extends Vue {
   }
 }
 </script>
-
-<style lang="stylus" scoped>
-  .modal-form-body
-    padding: 10px 24px
-    color: rgba(0, 0, 0, 0.5)
-
-  .modal-form-buttons
-    padding: 0px 8px 8px;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-</style>
