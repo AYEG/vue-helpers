@@ -127,7 +127,7 @@ describe('ModalWrapper.vue', () => {
     submitBtn.trigger('click')
     await qModal.vm.$nextTick()
     expect(buttonsElement.emitted('submit')[0]).to.eql([])
-    
+
     abortBtn.trigger('click')
     await qModal.vm.$nextTick()
     expect(buttonsElement.emitted('close')[0]).to.eql([])
@@ -146,13 +146,13 @@ describe('ModalWrapper.vue', () => {
     // default closed correct
     expect(qModal.props().value).to.equal(false)
 
-    wrapper.vm.open()
+    wrapper.vm.show()
 
     await wrapper.vm.$nextTick()
 
     expect(qModal.props().value).to.equal(true)
 
-    wrapper.vm.close()
+    wrapper.vm.hide()
 
     await wrapper.vm.$nextTick()
 

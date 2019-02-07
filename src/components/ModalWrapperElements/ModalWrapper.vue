@@ -11,7 +11,9 @@
       <slot name="content" />
     </modal-wrapper-content>
 
-    <ModalWrapperButtons v-on="$listeners" @close="opened = false" />
+    <slot name="buttons">
+      <ModalWrapperButtons v-on="$listeners" @close="opened = false" />
+    </slot>
 
     <q-inner-loading :visible="showLoading">
       <q-spinner-gears size="50px" color="primary" />
@@ -41,7 +43,6 @@ export default class ModalWrapper extends Vue {
   @Prop({ type: Boolean, default: false }) public value!: boolean
   @Prop({ type: String, default: '' }) public title!: string
   @Prop({ type: Boolean, default: false }) public showLoading!: boolean
-  @Prop({ type: Boolean, default: true }) public buttonsEnabled!: boolean
 
   public refOpen: boolean = false
 
@@ -54,12 +55,26 @@ export default class ModalWrapper extends Vue {
     this.$emit('input', value)
   }
 
-  public open(): void {
+  public show(): void {
     this.refOpen = true
   }
 
-  public close(): void {
+  public hide(): void {
     this.refOpen = false
+  }
+
+  /**
+   * @deprecated since version 1.0.10
+   */
+  public open(): void {
+    this.show()
+  }
+
+  /**
+   * @deprecated since version 1.0.10
+   */
+  public close(): void {
+    this.hide()
   }
 }
 </script>
