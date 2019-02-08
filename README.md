@@ -10,13 +10,11 @@ props:
 * *value* (boolean optional): used to open and close the modal
 * *title* (string optional): Title to be displayed in the modal
 * *showLoading* (boolean optional): Shows QInnerLoading with QSpinnerGears if true
-* *buttonsEnabled* (boolean optional): Render modal buttons
-* All props of QModal available in the current version of quasar
 
 Besides displaying props the modal also has three slots available for you to customize your modal. These slots being:
 * content (consists of modal content),
 * abort (consists of the abort button), 
-* submit (consists of the submit button).
+* buttons (consists modal wrapper buttons).
 
 The modal can be opened using both refs and v-model.
 

@@ -2,14 +2,14 @@
   <q-field
     :error-label="errors.first(scope + name)"
     :error="errors.has(scope + name)"
-    :label="label"
     :data-name="name + '-field'"
+    v-bind="fieldAttributes"
   >
     <component
       :is="inputComp"
       v-model="localValue"
       :name="name"
-      v-bind="$attrs"
+      v-bind="componentAttributes"
     />
   </q-field>
 </template>
@@ -26,7 +26,19 @@ export default class UWInput extends Vue {
   @Prop({ required: true }) public value!: string
   @Prop({ required: true }) public name!: string
   @Prop({ required: false, default: '' }) public validatorScope!: string
-  @Prop({ required: false, default: '' }) public label!: string
+  private fieldAttributeKeys: string[] = [
+    'label',
+    'icon',
+    'icon-color',
+    'helper',
+    'warning',
+    'warning-label',
+    'count',
+    'inset',
+    'orientation',
+    'label-width',
+    'dark',
+  ]
 
   get scope(): string {
     return this.validatorScope !== '' ? this.validatorScope + '.' : ''
@@ -40,6 +52,26 @@ export default class UWInput extends Vue {
       case 'QSelect':
         return QSelect
     }
+  }
+
+  get componentAttributes(): object {
+    return Object.keys(this.$attrs)
+      .filter((key: string) => !this.fieldAttributeKeys.includes(key))
+      // tslint:disable:no-any
+      .reduce((obj: any, key: string): object => {
+        obj[key] = this.$attrs[key]
+        return obj
+      }, {})
+  }
+
+  get fieldAttributes(): object {
+    return Object.keys(this.$attrs)
+      .filter((key: string) => this.fieldAttributeKeys.includes(key))
+      // tslint:disable:no-any
+      .reduce((obj: any, key: string): object => {
+        obj[key] = this.$attrs[key]
+        return obj
+      }, {})
   }
 
   get localValue(): string {
