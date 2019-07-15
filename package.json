@@ -1,6 +1,6 @@
 {
   "name": "@laura-wert/vue-helpers",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "",
   "productName": "",
   "license": "MIT",
@@ -47,8 +47,8 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
-    "fork-ts-checker-webpack-plugin": "^1.4.2",
     "eslint-plugin-vue": "^5.2.3",
+    "fork-ts-checker-webpack-plugin": "^1.4.2",
     "lint-staged": "^9.2.0",
     "nyc": "^14.1.1",
     "quasar-framework": ">=0.16.0",
