@@ -10,7 +10,7 @@ let validator: Validator
 
 describe('UWInput.vue', () => {
   beforeEach(() => {
-    validator = new VeeValidate.Validator()
+    validator = new Validator()
   })
 
   it('displays props in input and is QInput by default', () => {

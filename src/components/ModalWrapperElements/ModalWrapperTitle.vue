@@ -1,5 +1,7 @@
 <template>
-  <div v-show="title !== ''" class="modal-header">{{ title }}</div>
+  <div v-show="title !== ''" class="modal-header">
+    {{ title }}
+  </div>
 </template>
 
 <script lang=ts>
