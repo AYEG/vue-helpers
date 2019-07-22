@@ -1,5 +1,5 @@
 <template>
-  <q-modal
+  <q-dialog
     v-model="opened"
     v-bind="$attrs"
     v-on="$listeners"
@@ -18,11 +18,11 @@
     <q-inner-loading :visible="showLoading">
       <q-spinner-gears size="50px" color="primary" />
     </q-inner-loading>
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script lang=ts>
-import { QInnerLoading, QModal, QSpinnerGears } from 'quasar'
+import { QInnerLoading, QDialog, QSpinnerGears } from 'quasar'
 import ModalWrapperButtons from 'src/components/ModalWrapperElements/ModalWrapperButtons.vue'
 import ModalWrapperContent from 'src/components/ModalWrapperElements/ModalWrapperContent.vue'
 import ModalWrapperTitle from 'src/components/ModalWrapperElements/ModalWrapperTitle.vue'
@@ -34,7 +34,7 @@ import { Component, Prop } from 'vue-property-decorator'
     ModalWrapperTitle,
     ModalWrapperButtons,
     ModalWrapperContent,
-    QModal,
+    QDialog,
     QInnerLoading,
     QSpinnerGears,
   },

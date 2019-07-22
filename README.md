@@ -30,31 +30,3 @@ Component with default ModalWrapperContent styling slots:
 Component with default ModalWrapperTitle styling, props:
 
 * *title* (string optional): Title to be displayed in the modal
-
-#### UWInput
-Form Element that contains our standard configuration for forms. 
-At this time only QInput and QSelect are suppported, but more quasar element can be added. 
-
-This component consist of:
-* A Qfield + een quasar input element
-* Matching name for input + field that makes sure v-validate errors are displayed
-
-Usage (props):
-* input(string): quasar input naam (QInput, QSelect)
-* name(string) *: input name + field name
-* value(string) *: waarde van input
-* label(string): label die in het formulier weergeven wordt  
-* Verder worden alle props via Uwinput naar de onderliggende quasar input doorgegeven
-
-To use v-validate on the field the vee-validate validator has to be passed down from the parent as follows:
-      @Provide() private parentValidator: Validator = this.$validator
-
-Example:
-    <uw-input
-      v-validate="'required'"
-      v-model="contactPerson.role"
-      :options="roleOptions"
-      input="QSelect"
-      name="role"
-      label="Rol"
-    />
