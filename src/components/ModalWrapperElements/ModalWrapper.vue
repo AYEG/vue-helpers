@@ -1,6 +1,7 @@
 <template>
   <q-dialog
     v-model="opened"
+    data-name="dialog"
     v-bind="$attrs"
     v-on="$listeners"
     @hide="opened = false"
@@ -14,15 +15,14 @@
     <slot name="buttons">
       <ModalWrapperButtons v-on="$listeners" @close="opened = false" />
     </slot>
-
-    <q-inner-loading :visible="showLoading">
+    <q-inner-loading :showing="showLoading">
       <q-spinner-gears size="50px" color="primary" />
     </q-inner-loading>
   </q-dialog>
 </template>
 
 <script lang=ts>
-import { QInnerLoading, QDialog, QSpinnerGears } from 'quasar'
+import { QDialog, QInnerLoading, QSpinnerGears } from 'quasar'
 import ModalWrapperButtons from 'src/components/ModalWrapperElements/ModalWrapperButtons.vue'
 import ModalWrapperContent from 'src/components/ModalWrapperElements/ModalWrapperContent.vue'
 import ModalWrapperTitle from 'src/components/ModalWrapperElements/ModalWrapperTitle.vue'

@@ -27,7 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@laura-wert/git-clean-status": "^1.0.0",
-    "@laura-wert/vue-test-helpers": "^1.0.13",
+    "@laura-wert/vue-test-helpers": "^2.5.4",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.14.12",
@@ -40,7 +40,7 @@
     "@vue/cli-service": "^3.9.2",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/eslint-config-typescript": "^4.0.0",
-    "@vue/test-utils": "1.0.0-beta.28",
+    "@vue/test-utils": "1.0.0-beta.29",
     "babel-plugin-istanbul": "^5.1.0",
     "chai": "^4.2.0",
     "codacy-coverage": "^3.4.0",
@@ -67,8 +67,10 @@
   },
   "peerDependencies": {
     "quasar": ">=1.0.5",
-    "quasar-cli": ">=0.15.0",
     "vue": ">=2.5.16"
+  },
+  "resolutions": {
+    "jsdom": "14.0.0"
   },
   "files": [
     "package.json",

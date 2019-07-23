@@ -1,4 +1,7 @@
-import { createTestApp as createBaseTestApp } from '@laura-wert/vue-test-helpers'
+import { createLocalVue } from '@vue/test-utils'
+import Quasar from 'quasar'
 import Vue from 'vue'
 
-export default (): typeof Vue => createBaseTestApp()
+Vue.use(Quasar, {})
+
+export default (): typeof Vue => createLocalVue()

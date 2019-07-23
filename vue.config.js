@@ -15,7 +15,6 @@ module.exports = {
     })
   },
   configureWebpack: config => {
-    config.resolve.alias.quasar = path.resolve(__dirname, './node_modules/quasar-framework/dist/quasar.mat.esm.js')
     config.resolve.alias.src = path.resolve(__dirname, './src')
     config.resolve.alias.tests = path.resolve(__dirname, './tests')
 
