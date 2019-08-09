@@ -1,5 +1,6 @@
 const path = require('path')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const { setBuildExternals } = require('./build-helpers')
 
 module.exports = {
   css: { extract: false },
@@ -18,11 +19,6 @@ module.exports = {
     config.resolve.alias.src = path.resolve(__dirname, './src')
     config.resolve.alias.tests = path.resolve(__dirname, './tests')
 
-    if (config.mode === 'production') {
-      config.externals.quasar = 'quasar'
-      config.externals['@vue/test-utils'] = '@vue/test-utils'
-      config.externals['vue-class-component'] = 'vue-class-component'
-      delete config.devtool
-    }
+    setBuildExternals(config)
   },
 }

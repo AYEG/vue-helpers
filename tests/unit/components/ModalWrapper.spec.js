@@ -1,11 +1,13 @@
-import { mount } from '@vue/test-utils'
+import {
+  createLocalVue,
+  mount,
+} from '@vue/test-utils'
 import { expect } from 'chai'
 import sinon from 'sinon'
 import ModalWrapper from 'src/components/ModalWrapperElements/ModalWrapper'
-import createTestApp from 'tests/helpers/create-test-app'
 import { QDialogStub } from '@laura-wert/vue-test-helpers'
 
-const localVue = createTestApp()
+const localVue = createLocalVue()
 describe('ModalWrapper.vue', () => {
   it('Displays title in modal header and hides element when empty', async () => {
     const wrapper = mount(ModalWrapper, {
