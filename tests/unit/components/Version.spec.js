@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import Version from 'src/components/Version.js'
+import Version from 'src/components/Version.ts'
 
 let propsData = {}
 

@@ -26,7 +26,7 @@ const externals = {
 
 exports.setBuildExternals = function(config) {
   if (config.mode === 'production') {
-    config.externals = Object.assign(config.externals, externals)
+    config.externals = Object.assign(config.externals || {}, externals)
     delete config.devtool
   }
 }

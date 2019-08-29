@@ -110,6 +110,6 @@ describe('UWInput.vue', () => {
 
     await wrapper.vm.$validator.validateAll()
 
-    expect(wrapper.getValidationError('input1')).to.equal('The input1 value is not valid.')
+    expect(wrapper.getValidationError('input1')).to.equal('The input1 value is not valid')
   })
 })
