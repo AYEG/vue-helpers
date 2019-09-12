@@ -11,3 +11,5 @@ Vue.use(VeeValidate, {
 
 global.expect = expect
 chai.use(sinonChai)
+
+global.requestAnimationFrame = cb => cb()
