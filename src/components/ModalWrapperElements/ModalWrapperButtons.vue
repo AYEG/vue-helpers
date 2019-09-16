@@ -24,7 +24,7 @@
 </template>
 
 <script lang=ts>
-import { QBtn } from 'quasar'
+import QBtn from 'quasar/src/components/btn/QBtn'
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 

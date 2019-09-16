@@ -21,9 +21,9 @@ export default class UwInput extends Vue {
     switch (this.input) {
       case 'QInput':
       default:
-        return require('quasar').QInput
+        return require('quasar/src/components/input/QInput').default
       case 'QSelect':
-        return require('quasar').QSelect
+        return require('quasar/src/components/select/QSelect').default
     }
   }
 

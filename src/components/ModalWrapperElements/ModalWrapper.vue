@@ -22,7 +22,9 @@
 </template>
 
 <script lang=ts>
-import { QDialog, QInnerLoading, QSpinnerGears } from 'quasar'
+import QDialog from 'quasar/src/components/dialog/QDialog'
+import QInnerLoading from 'quasar/src/components/inner-loading/QInnerLoading'
+import QSpinnerGears from 'quasar/src/components/spinner/QSpinnerGears'
 import ModalWrapperButtons from 'src/components/ModalWrapperElements/ModalWrapperButtons.vue'
 import ModalWrapperContent from 'src/components/ModalWrapperElements/ModalWrapperContent.vue'
 import ModalWrapperTitle from 'src/components/ModalWrapperElements/ModalWrapperTitle.vue'

@@ -3,7 +3,6 @@ const externals = {
   '@laura-wert/vue-helpers': '@laura-wert/vue-helpers',
   '@vue/test-utils': '@vue/test-utils',
   'axios': 'axios',
-  'quasar': 'quasar',
   'quasar/lang/nl': 'quasar/lang/nl',
   'quasar/src/vue-plugin.js': 'quasar/src/vue-plugin.js',
   'quasar/src/components/btn/QBtn': 'quasar/src/components/btn/QBtn',
