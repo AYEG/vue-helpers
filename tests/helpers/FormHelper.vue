@@ -1,13 +1,9 @@
 <template>
-  <uw-input
-    v-model="model"
-    v-validate="'required'"
-    name="input1"
-  />
+  <uw-input v-model="model" v-validate="'required'" name="input1" />
 </template>
 
 <script lang=ts>
-import UwInput from 'src/components/UwInput'
+import UwInput from 'src/components/UwInput.vue'
 import { Validator } from 'vee-validate'
 import { Component, Provide, Vue } from 'vue-property-decorator'
 
