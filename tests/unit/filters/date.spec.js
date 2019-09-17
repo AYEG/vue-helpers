@@ -1,5 +1,5 @@
 import { createLocalVue } from '@vue/test-utils'
-import dateFilter from 'src/filters/date'
+import dateFilter from '../../../src/filters/date'
 
 const localVue = createLocalVue()
 dateFilter({ Vue: localVue })

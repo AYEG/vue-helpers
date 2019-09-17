@@ -3,15 +3,15 @@
 </template>
 
 <script lang=ts>
-import UwInput from 'src/components/UwInput.vue'
 import { Validator } from 'vee-validate'
 import { Component, Provide, Vue } from 'vue-property-decorator'
+import UwInput from '../../src/components/UwInput.vue'
 
 @Component({
   components: { UwInput },
 })
 export default class FormHelper extends Vue {
   @Provide() public parentValidator: Validator = this.$validator
-  public model = ''
+  public model: string = ''
 }
 </script>

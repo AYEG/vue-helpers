@@ -33,6 +33,7 @@ const externals = {
   'vue-browser-acl': 'vue-browser-acl',
   'vue-class-component': 'vue-class-component',
   'vue-property-decorator': 'vue-property-decorator',
+  'vue-router': 'vue-router',
   'vuex-xhr-state': 'vuex-xhr-state',
 }
 

@@ -4,7 +4,7 @@ import {
 } from '@vue/test-utils'
 import { expect } from 'chai'
 import sinon from 'sinon'
-import ModalWrapper from 'src/components/ModalWrapperElements/ModalWrapper'
+import ModalWrapper from '../../../src/components/ModalWrapperElements/ModalWrapper'
 import { QDialogStub } from '@laura-wert/vue-test-helpers'
 
 const localVue = createLocalVue()

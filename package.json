@@ -6,7 +6,7 @@
   "license": "MIT",
   "author": " ",
   "main": "dist/index.umd.min.js",
-  "typings": "lib/src/index.typings.d.ts",
+  "typings": "types/index.d.ts",
   "bin": {
     "laura-wert-cli": "bin/cli.js"
   },
@@ -14,10 +14,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "yarn lint && yarn clean && yarn build:ts && yarn build:main",
-    "build:ts": "tsc -p . --declaration --emitDeclarationOnly --allowJs false --noImplicitAny false && rm -rf ./lib/test",
-    "build:main": "vue-cli-service build --target lib --name org/index src/index.js && mv ./dist/org/index.umd.min.js ./dist/ && rm -rf ./dist/org && rm -rf ./dist/demo.html",
-    "clean": "rimraf ./dist && rimraf ./lib",
+    "build": "yarn lint && yarn clean && yarn build:main",
+    "build:main": "vue-cli-service build --target lib --name org/index src/index.ts && mv ./dist/org/index.umd.min.js ./dist/ && rm -rf ./dist/org && rm -rf ./dist/demo.html",
+    "clean": "rimraf ./dist && rimraf ./types",
     "release": "yarn git-clean-status &&  yarn build && yarn publish",
     "lint": "vue-cli-service lint --fix && ./bin/cli.js tslint",
     "test:unit": "vue-cli-service test:unit --include tests/unit/setup.js tests/unit/",
@@ -65,6 +64,7 @@
     "vue": "^2.6.10",
     "vue-class-component": "^7.1.0",
     "vue-property-decorator": "^8.2.1",
+    "vue-router": "^3.1.3",
     "vue-template-compiler": "^2.6.10"
   },
   "peerDependencies": {
@@ -79,7 +79,7 @@
     "bin/",
     "build-helpers/",
     "dist/",
-    "lib/"
+    "types/"
   ],
   "browserslist": [
     "> 1%",

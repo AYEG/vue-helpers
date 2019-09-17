@@ -33,6 +33,7 @@ describe('SelectWithFilter.vue', () => {
       },
       localVue,
     })
+
     const qSelect: Wrapper<IQSelect> = wrapper.find({ name: 'QSelect' })
 
     qSelect.vm.virtualScrollSliceRange = { from: 0, to: qSelect.vm.options!.length }
@@ -42,10 +43,9 @@ describe('SelectWithFilter.vue', () => {
 
     qSelect.vm.filter('gr')
     await wrapper.vm.$nextTick()
-
-    // TODO: fail safe maken bij overzetten naar vue-test-helper library - aangeven als er geen qMenu gevonden is
-    // Vervolg stap voor deze test is uitzoeken hoe gebruik te maken van sinon faketimers
-    // omdat quasar onderwater een timeout gebruikt
+    // TODO: alternatief voor zelf functies aanroepen: sinon fake timers gebruiken.
+    // global meegeven aan fake timer instance
+    // dan input gebruiken en clock tick next
 
     // @ts-ignore
     const qMenu = createWrapper(window.document.body.getElementsByClassName('q-menu')[0].__vue__)

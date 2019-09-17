@@ -1,8 +1,8 @@
 import { expect } from 'chai'
-import setColDefaults, { IColumns } from 'src/table/set-column-defaults'
+import { addColumnDefaults, IColumns } from '../../../src/table'
 
 describe('setColumnDefaults', () => {
-  const columns: IColumns[] = setColDefaults([
+  const columns: IColumns[] = addColumnDefaults([
     {
       label: 'ID',
       name: 'id',

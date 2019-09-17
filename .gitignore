@@ -67,6 +67,7 @@ dist/
 
 coverage/
 
-lib/
+types/
+types/**
 
 \.nyc_output/
