@@ -1,12 +1,8 @@
-import {
-  createLocalVue,
-  mount,
-} from '@vue/test-utils'
+import { QDialogStub } from '@laura-wert/vue-test-helpers'
+import { createLocalVue, mount } from '@vue/test-utils'
 import { expect } from 'chai'
 import sinon from 'sinon'
-import ModalWrapper from '../../../src/components/ModalWrapperElements/ModalWrapper'
-import { QDialogStub } from '@laura-wert/vue-test-helpers'
-
+import ModalWrapper from '../../../src/components/ModalWrapperElements/ModalWrapper.vue'
 const localVue = createLocalVue()
 describe('ModalWrapper.vue', () => {
   it('Displays title in modal header and hides element when empty', async () => {
@@ -120,17 +116,18 @@ describe('ModalWrapper.vue', () => {
       },
       stubs: { QDialog: QDialogStub },
     })
+
     const QDialog = wrapper.find({ name: 'QDialog' })
 
     // default closed correct
     expect(QDialog.props().value).to.equal(false)
-
+    // @ts-ignore
     wrapper.vm.show()
 
     await wrapper.vm.$nextTick()
 
     expect(QDialog.props().value).to.equal(true)
-
+    // @ts-ignore
     wrapper.vm.hide()
 
     await wrapper.vm.$nextTick()

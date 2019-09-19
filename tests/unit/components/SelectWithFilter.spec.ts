@@ -41,11 +41,10 @@ describe('SelectWithFilter.vue', () => {
     qSelect.vm.showPopup()
     await wrapper.vm.$nextTick()
 
+    // let event loop cycle
+    await Promise.resolve()
     qSelect.vm.filter('gr')
     await wrapper.vm.$nextTick()
-    // TODO: alternatief voor zelf functies aanroepen: sinon fake timers gebruiken.
-    // global meegeven aan fake timer instance
-    // dan input gebruiken en clock tick next
 
     // @ts-ignore
     const qMenu = createWrapper(window.document.body.getElementsByClassName('q-menu')[0].__vue__)

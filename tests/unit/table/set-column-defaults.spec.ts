@@ -14,10 +14,14 @@ describe('setColumnDefaults', () => {
     {
       label: 'Telefoonnummer',
       name: 'phone_number',
+      field: 'phone_number',
+      align: 'right',
     },
     {
       label: 'Beheer',
       name: 'edit',
+      sortable: false,
+      align: 'left',
     },
   ])
 
@@ -41,13 +45,13 @@ describe('setColumnDefaults', () => {
       name: 'phone_number',
       field: 'phone_number',
       sortable: true,
-      align: 'left',
+      align: 'right',
     },
     {
       label: 'Beheer',
       name: 'edit',
       field: 'edit',
-      sortable: true,
+      sortable: false,
       align: 'left',
     },
   ]
