@@ -30,3 +30,9 @@ Component with default ModalWrapperContent styling slots:
 Component with default ModalWrapperTitle styling, props:
 
 * *title* (string optional): Title to be displayed in the modal
+
+### SelectWithFilter
+Standard QSelect component with basic filter function included
+
+### ColumnDefault
+Helper to set column properties
