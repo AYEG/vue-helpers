@@ -37,8 +37,8 @@ export default class ModalWrapperButtons extends Vue {}
 </script>
 
 <style lang="stylus" scoped>
-  .modal-form-buttons
-    padding: 0px 8px 8px;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
+.modal-form-buttons
+  padding 0px 8px 8px
+  -ms-flex-pack end
+  justify-content flex-end
 </style>
