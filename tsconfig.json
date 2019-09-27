@@ -14,7 +14,7 @@
     "resolveJsonModule": true,
     "sourceMap": false,
     "baseUrl": "./",
-    "outDir": "types",
+    "outDir": "dist/types",
     "types": [
       "chai",
       "mocha",

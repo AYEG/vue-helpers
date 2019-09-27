@@ -1,12 +1,11 @@
 {
   "name": "@laura-wert/vue-helpers",
   "version": "3.0.0",
-  "description": "",
-  "productName": "",
   "license": "MIT",
   "author": " ",
+  "module": "dist/index.common.js",
   "main": "dist/index.umd.min.js",
-  "typings": "types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
   "bin": {
     "laura-wert-cli": "bin/cli.js"
   },
@@ -15,8 +14,8 @@
   },
   "scripts": {
     "build": "yarn lint && yarn clean && yarn build:main",
-    "build:main": "vue-cli-service build --target lib --name org/index src/index.ts && mv ./dist/org/index.umd.min.js ./dist/ && rm -rf ./dist/org && rm -rf ./dist/demo.html",
-    "clean": "rimraf ./dist && rimraf ./types",
+    "build:main": "vue-cli-service build --target lib --name index src/index.ts && rm -rf ./dist/demo.html",
+    "clean": "rimraf ./dist",
     "release": "yarn git-clean-status &&  yarn build && yarn publish",
     "lint": "vue-cli-service lint --fix && ./bin/cli.js tslint",
     "test:unit": "vue-cli-service test:unit --include tests/unit/setup.js tests/unit/",
@@ -78,8 +77,7 @@
     "package.json",
     "bin/",
     "build-helpers/",
-    "dist/",
-    "types/"
+    "dist/"
   ],
   "browserslist": [
     "> 1%",
