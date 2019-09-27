@@ -3,7 +3,9 @@ import { createLocalVue, mount } from '@vue/test-utils'
 import { expect } from 'chai'
 import sinon from 'sinon'
 import ModalWrapper from '../../../src/components/ModalWrapperElements/ModalWrapper.vue'
+
 const localVue = createLocalVue()
+
 describe('ModalWrapper.vue', () => {
   it('Displays title in modal header and hides element when empty', async () => {
     const wrapper = mount(ModalWrapper, {
@@ -14,7 +16,6 @@ describe('ModalWrapper.vue', () => {
       },
       stubs: { QDialog: QDialogStub },
     })
-    const transition = wrapper.find({ name: 'ExtendedTransitionStub' })
 
     wrapper.setProps({ value: true })
     await localVue.nextTick()
@@ -75,7 +76,6 @@ describe('ModalWrapper.vue', () => {
     wrapper.setMethods({ $emit: sinon.fake() })
 
     const qDialog = wrapper.find({ name: 'QDialog' })
-    const transition = wrapper.find({ name: 'ExtendedTransitionStub' })
 
     // default closed correct
     expect(qDialog.props().value).to.equal(false)

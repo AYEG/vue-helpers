@@ -28,7 +28,7 @@
     "@babel/core": "^7.5.4",
     "@laura-wert/git-clean-status": "^1.0.0",
     "@laura-wert/vue-test-helpers": "^2.5.4",
-    "@types/chai": "^4.2.0",
+    "@types/chai": "4.2.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.14.16",
     "@types/sinon": "^7.0.13",
