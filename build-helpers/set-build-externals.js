@@ -12,6 +12,7 @@ const externals = {
   'quasar/src/components/checkbox/QCheckbox': 'quasar/src/components/checkbox/QCheckbox',
   'quasar/src/components/banner/QBanner': 'quasar/src/components/banner/QBanner',
   'quasar/src/components/dialog/QDialog': 'quasar/src/components/dialog/QDialog',
+  'quasar/src/components/field/QField': 'quasar/src/components/field/QField',
   'quasar/src/components/icon/QIcon': 'quasar/src/components/icon/QIcon',
   'quasar/src/components/input/QInput': 'quasar/src/components/input/QInput',
   'quasar/src/components/list/QItem': 'quasar/src/components/list/QItem',
