@@ -12,8 +12,8 @@
 
 <script lang="ts">
 import QSelect from 'quasar/src/components/select/QSelect'
-import { IQSelectOptions } from 'src/quasar-types'
 import { Component, Prop, Vue } from 'vue-property-decorator'
+import { IQSelectOptions } from '../quasar-types'
 
 @Component({
   components: {
